@@ -34,16 +34,11 @@ mimesis는 **Claude Code 플러그인으로 배포하지 않는다.** 마음에 
 ### 권장 사용 방식
 
 1. [인물 로스터](#인물-로스터-점진-추가)에서 자기에게 울림이 있는 거장 1~3명을 고른다.
-2. 그 figure 디렉토리만 복사한다:
-   ```bash
-   # 예: 프롬 + 이어령만 가져가기 (+ 라우터를 같이 둘지는 선택)
-   cp -R mimesis/.claude/skills/erich-fromm-having-vs-being  your-repo/.claude/skills/
-   cp -R mimesis/.claude/skills/lee-eo-ryeong-questioning    your-repo/.claude/skills/
-   cp -R mimesis/.claude/skills/master-router                your-repo/.claude/skills/  # 선택
-   ```
-3. 나중에 한 명이 더 필요해지면 그때 추가한다. ADR도 같이 가져가면 "왜 이렇게 잘랐는가"의 사고 흐름까지 들이는 셈.
+2. 이 레포의 `.claude/skills/<figure-name>/` 디렉토리만 자기 작업 레포의 `.claude/skills/` 아래로 복사한다. 짝이 되는 `ADR/skills/NNNN-<figure-name>.md` 도 같이 가져가면 "왜 이렇게 잘랐는가"의 사고 흐름까지 들이는 셈.
+3. 라우터(`master-router/`)는 거장 2명 이상부터 같이 가져가면 트리거 충돌이 줄어든다. 한 명만 쓰는 시기엔 불필요.
+4. 나중에 한 명이 더 필요해지면 그때 추가한다.
 
-> **참고**: skill description은 모든 세션에 상주한다는 점, Claude Code의 [공식 skill 로딩 문서](https://code.claude.com/docs/en/skills.md)에서 확인. 플러그인 vs 복사에 대한 직접적인 공식 가이드는 없지만, 이 레포는 figure-anchored 학습 철학에 맞춰 후자를 권장한다.
+> **참고**: skill description이 모든 세션에 상주한다는 점은 Claude Code의 [공식 skill 로딩 문서](https://code.claude.com/docs/en/skills.md)에서 확인. 플러그인 vs 복사에 대한 직접적인 공식 가이드는 없지만, 이 레포는 figure-anchored 학습 철학에 맞춰 후자를 권장한다.
 
 ## 사용 흐름 (권장)
 
