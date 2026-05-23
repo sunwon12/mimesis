@@ -5,8 +5,8 @@
 - **Related skill**: `.claude/skills/lee-eo-ryeong-questioning/`
 - **Source figure(s)**: 이어령(Lee Eo-ryeong)
 - **Primary sources**:
-  - [research raw](../research/lee-eo-ryeong/questioning-as-thinking-raw.md)
-  - [research summary](../research/lee-eo-ryeong/questioning-as-thinking-summary.md)
+  - [research raw](../../research/lee-eo-ryeong/questioning-as-thinking-raw.md)
+  - [research summary](../../research/lee-eo-ryeong/questioning-as-thinking-summary.md)
 
 ## Context
 mimesis 레포의 첫 스킬이다. "거장의 사고를 재현 가능한 절차로 박제한다"는 컨셉을 가장 강하게 증명할 후보로 이어령의 "질문 → 사색" 양식을 골랐다. 이유:

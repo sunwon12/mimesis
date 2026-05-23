@@ -5,8 +5,8 @@
 - **Related skill**: `.claude/skills/mckinsey-structured-problem-solving/`
 - **Source figure(s)**: McKinsey (대표 lineage: Barbara Minto · Ethan Rasiel · Charles Conn & Robert McLean)
 - **Primary sources**:
-  - [research raw](../research/mckinsey/structured-problem-solving-raw.md)
-  - [research summary](../research/mckinsey/structured-problem-solving-summary.md)
+  - [research raw](../../research/mckinsey/structured-problem-solving-raw.md)
+  - [research summary](../../research/mckinsey/structured-problem-solving-summary.md)
   - Barbara Minto, *The Pyramid Principle* (Pyramid / SCQA / MECE 정의)
   - Ethan Rasiel, *The McKinsey Way* (MECE 운영 테스트 · "don't boil the ocean" · hypothesis-driven)
   - Charles Conn & Robert McLean, *Bulletproof Problem Solving* (7-step process · one-hour answer · impact×movability · false precision 경계)

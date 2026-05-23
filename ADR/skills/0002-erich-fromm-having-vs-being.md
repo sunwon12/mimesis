@@ -5,8 +5,8 @@
 - **Related skill**: `.claude/skills/erich-fromm-having-vs-being/`
 - **Source figure(s)**: Erich Fromm
 - **Primary sources**:
-  - [research raw](../research/erich-fromm/having-vs-being-raw.md)
-  - [research summary](../research/erich-fromm/having-vs-being-summary.md)
+  - [research raw](../../research/erich-fromm/having-vs-being-raw.md)
+  - [research summary](../../research/erich-fromm/having-vs-being-summary.md)
   - 원전: *To Have or To Be?* (Harper & Row, 1976) — Ch.1 (프레임), Ch.2 (학습/지식/권위/사랑); 보조: *The Art of Loving* (1956), *The Art of Being* (1989), Marx *Economic and Philosophic Manuscripts of 1844*.
 
 ## Context
