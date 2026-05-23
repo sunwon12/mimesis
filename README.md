@@ -31,6 +31,7 @@
 | 아리스토텔레스 | [`aristotle-causal-why`](.claude/skills/aristotle-causal-why/) · [ADR](ADR/skills/0005-aristotle-causal-why.md) | diagnostic | 4원인 + archē — "왜?"를 두 축으로 끝까지 추궁 | 5 Whys가 작용인 한 갈래로 수렴해 답답하거나, 머스크식 first principles가 질료인만 분해하고 멈췄을 때. |
 | 리처드 파인만 | [`feynman-explaining-to-understand`](.claude/skills/feynman-explaining-to-understand/) · [ADR](ADR/skills/0006-feynman-explaining-to-understand.md) | diagnostic | 이해 자기-감사 — 이름 벗기기 + Brazil-bay 적용 + freshman 환원 | 공부한 직후 "이거 진짜 안 거 맞나" 의심이 들 때, fluent한 설명이 cargo-cult(형식만 완벽·메커니즘 부재)인지 까발린다. |
 | 데이비드 오길비 | [`ogilvy`](.claude/skills/ogilvy/) + [agent](.claude/agents/ogilvy.md) · [ADR](ADR/skills/0007-ogilvy.md) | **collaborator** | 브랜드·광고·카피의 ongoing 협업 — 6개 모드(인테이크/카피/네이밍·포지셔닝/Big Idea/캠페인/헤드라인)를 한 인격으로 | "이 카피 어때 → 고쳤어 → 다시 봐줘"의 멀티턴 협업이 필요할 때. 진단 1턴이 아니라 default pushback voice로 함께 일하고 싶을 때. |
+| 안드레이 카파시 | [`karpathy`](.claude/skills/karpathy/) + [agent](.claude/agents/karpathy.md) · [ADR](ADR/skills/0008-karpathy.md) | **collaborator** | 백엔드 엔지니어의 AI 작업 ongoing 협업 — 6개 지각 엔진(Context as RAM / Build for agents / Minimal repro / Spirits not animals / Autonomy slider / works.any vs all)을 한 인격으로 | 프롬프트·세션·메모리 설계, docs·API·error의 agent consumer 검토, AI feasibility 진단, 흔한·unique 패턴 calibration, 통합 지점의 autonomy slider 디자인, demo→production 운영 spec 분기 — 매일 AI 통합 작업에 카파시 voice를 동반하고 싶을 때. |
 
 > **Collaborator shape 주의**: `ogilvy` 스킬은 본체가 아니라 진입점이다. `.claude/agents/ogilvy.md` agent와 짝으로 가져가야 작동한다. 진단 스킬은 SKILL.md 하나만 복사하면 되지만, collaborator는 두 파일 + ADR이 한 묶음.
 
