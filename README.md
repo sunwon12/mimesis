@@ -144,11 +144,11 @@ mimesis/
 | [`mckinsey-structured-problem-solving`](.claude/skills/mckinsey-structured-problem-solving/) · [ADR](ADR/skills/0003-mckinsey-structured-problem-solving.md) | MECE 이슈 트리 + 가설 + Pyramid·SCQA | 모호하고 큰 비즈니스/제품/정책 문제를 한 시간 안에 답하고 임원·투자자에게 전달해야 할 때. |
 | [`aristotle-phronesis`](.claude/skills/aristotle-phronesis/) · [ADR](ADR/skills/0004-aristotle-phronesis.md) | 아리스토텔레스 phronesis — 보편 원칙의 평균 가정이 빗나가는 개별 상황 진단 | 베스트프랙티스·SOP대로 했는데 이 사람·이 시점·이 맥락에선 어색할 때, 행위 한 가지로 다시 짠다. |
 | [`aristotle-causal-why`](.claude/skills/aristotle-causal-why/) · [ADR](ADR/skills/0005-aristotle-causal-why.md) | 아리스토텔레스 4원인 + archē — "왜?"를 두 축으로 끝까지 추궁 | 5 Whys가 작용인 한 갈래로 수렴해 답답하거나, 머스크식 first principles가 질료인만 분해하고 멈췄을 때. |
+| [`feynman-explaining-to-understand`](.claude/skills/feynman-explaining-to-understand/) · [ADR](ADR/skills/0006-feynman-explaining-to-understand.md) | 파인만의 이해 자기-감사 — 이름 벗기기 + Brazil-bay 적용 + freshman 환원 | 공부한 직후 "이거 진짜 안 거 맞나" 의심이 들 때, fluent한 설명이 cargo-cult(형식만 완벽·메커니즘 부재)인지 까발린다. |
 
 ### 예정
 
 - [ ] Charlie Munger — Latticework of Mental Models
-- [ ] Richard Feynman — 첫 원리적 사고와 학습법
 - [ ] Steve Jobs — 단순함의 미학
 - [ ] Naval Ravikant — 부와 행복의 원리
 
