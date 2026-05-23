@@ -136,15 +136,15 @@ mimesis/
 
 거장 1명 = 스킬 1개를 원칙으로 하되, 같은 거장의 *다른 method*는 별도 스킬로 가른다 (예: `aristotle-phronesis` vs `aristotle-causal-why`).
 
-| 스킬 | 한 줄 | 쓰면 뭐가 좋은가 |
-|---|---|---|
-| [`master-router`](.claude/skills/master-router/) · [ADR](ADR/meta/0001-master-router.md) | 거장 스킬 추천 라우터 (메타 스킬) | 막막한데 어느 인물·개념도 명시 못 할 때, 1~3명 후보를 "왜 이 상황에 맞는가"와 함께 추천받는다. |
-| [`lee-eo-ryeong-questioning`](.claude/skills/lee-eo-ryeong-questioning/) · [ADR](ADR/skills/0001-lee-eo-ryeong-questioning.md) | 이어령식 정문(正問) — 통설을 한 번 뒤집어 의미를 재정의 | 카피·키노트·리브랜딩·문제 재정의처럼 "다들 이렇게 말하는데"의 프레임 자체를 흔들고 싶을 때. |
-| [`erich-fromm-having-vs-being`](.claude/skills/erich-fromm-having-vs-being/) · [ADR](ADR/skills/0002-erich-fromm-having-vs-being.md) | 프롬 having vs being 모드 진단 | 학습·관계·소비·자기소개가 "가지는 자세"로 흐를 때, 같은 활동을 동사·과정·관계 중심으로 재구성한다. |
-| [`mckinsey-structured-problem-solving`](.claude/skills/mckinsey-structured-problem-solving/) · [ADR](ADR/skills/0003-mckinsey-structured-problem-solving.md) | MECE 이슈 트리 + 가설 + Pyramid·SCQA | 모호하고 큰 비즈니스/제품/정책 문제를 한 시간 안에 답하고 임원·투자자에게 전달해야 할 때. |
-| [`aristotle-phronesis`](.claude/skills/aristotle-phronesis/) · [ADR](ADR/skills/0004-aristotle-phronesis.md) | 아리스토텔레스 phronesis — 보편 원칙의 평균 가정이 빗나가는 개별 상황 진단 | 베스트프랙티스·SOP대로 했는데 이 사람·이 시점·이 맥락에선 어색할 때, 행위 한 가지로 다시 짠다. |
-| [`aristotle-causal-why`](.claude/skills/aristotle-causal-why/) · [ADR](ADR/skills/0005-aristotle-causal-why.md) | 아리스토텔레스 4원인 + archē — "왜?"를 두 축으로 끝까지 추궁 | 5 Whys가 작용인 한 갈래로 수렴해 답답하거나, 머스크식 first principles가 질료인만 분해하고 멈췄을 때. |
-| [`feynman-explaining-to-understand`](.claude/skills/feynman-explaining-to-understand/) · [ADR](ADR/skills/0006-feynman-explaining-to-understand.md) | 파인만의 이해 자기-감사 — 이름 벗기기 + Brazil-bay 적용 + freshman 환원 | 공부한 직후 "이거 진짜 안 거 맞나" 의심이 들 때, fluent한 설명이 cargo-cult(형식만 완벽·메커니즘 부재)인지 까발린다. |
+| 거장 | 스킬 | 한 줄 | 쓰면 뭐가 좋은가 |
+|---|---|---|---|
+| — (메타) | [`master-router`](.claude/skills/master-router/) · [ADR](ADR/meta/0001-master-router.md) | 거장 스킬 추천 라우터 | 막막한데 어느 인물·개념도 명시 못 할 때, 1~3명 후보를 "왜 이 상황에 맞는가"와 함께 추천받는다. |
+| 이어령 | [`lee-eo-ryeong-questioning`](.claude/skills/lee-eo-ryeong-questioning/) · [ADR](ADR/skills/0001-lee-eo-ryeong-questioning.md) | 정문(正問) — 통설을 한 번 뒤집어 의미를 재정의 | 카피·키노트·리브랜딩·문제 재정의처럼 "다들 이렇게 말하는데"의 프레임 자체를 흔들고 싶을 때. |
+| Erich Fromm | [`erich-fromm-having-vs-being`](.claude/skills/erich-fromm-having-vs-being/) · [ADR](ADR/skills/0002-erich-fromm-having-vs-being.md) | Having vs Being 모드 진단 | 학습·관계·소비·자기소개가 "가지는 자세"로 흐를 때, 같은 활동을 동사·과정·관계 중심으로 재구성한다. |
+| McKinsey | [`mckinsey-structured-problem-solving`](.claude/skills/mckinsey-structured-problem-solving/) · [ADR](ADR/skills/0003-mckinsey-structured-problem-solving.md) | MECE 이슈 트리 + 가설 + Pyramid·SCQA | 모호하고 큰 비즈니스/제품/정책 문제를 한 시간 안에 답하고 임원·투자자에게 전달해야 할 때. |
+| Aristotle | [`aristotle-phronesis`](.claude/skills/aristotle-phronesis/) · [ADR](ADR/skills/0004-aristotle-phronesis.md) | Phronesis — 보편 원칙의 평균 가정이 빗나가는 개별 상황 진단 | 베스트프랙티스·SOP대로 했는데 이 사람·이 시점·이 맥락에선 어색할 때, 행위 한 가지로 다시 짠다. |
+| Aristotle | [`aristotle-causal-why`](.claude/skills/aristotle-causal-why/) · [ADR](ADR/skills/0005-aristotle-causal-why.md) | 4원인 + archē — "왜?"를 두 축으로 끝까지 추궁 | 5 Whys가 작용인 한 갈래로 수렴해 답답하거나, 머스크식 first principles가 질료인만 분해하고 멈췄을 때. |
+| Richard Feynman | [`feynman-explaining-to-understand`](.claude/skills/feynman-explaining-to-understand/) · [ADR](ADR/skills/0006-feynman-explaining-to-understand.md) | 이해 자기-감사 — 이름 벗기기 + Brazil-bay 적용 + freshman 환원 | 공부한 직후 "이거 진짜 안 거 맞나" 의심이 들 때, fluent한 설명이 cargo-cult(형식만 완벽·메커니즘 부재)인지 까발린다. |
 
 ### 예정
 
