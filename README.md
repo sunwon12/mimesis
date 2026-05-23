@@ -13,6 +13,26 @@
 - **태도(How they live)** — 이어령의 지적 호기심, 스티브 잡스의 단순함, 세네카의 평정
 - **작업법(How they work)** — 헤밍웨이의 글쓰기 루틴, 다 빈치의 노트, 폰 노이만의 문제 분해
 
+## 스킬 카탈로그
+
+거장 1명 = 스킬 1개를 원칙으로 하되, 같은 거장의 *다른 method*는 별도 스킬로 가른다 (예: `aristotle-phronesis` vs `aristotle-causal-why`).
+
+| 거장 | 스킬 | 한 줄 | 쓰면 뭐가 좋은가 |
+|---|---|---|---|
+| — (메타) | [`master-router`](.claude/skills/master-router/) · [ADR](ADR/meta/0001-master-router.md) | 거장 스킬 추천 라우터 | 막막한데 어느 인물·개념도 명시 못 할 때, 1~3명 후보를 "왜 이 상황에 맞는가"와 함께 추천받는다. |
+| 이어령 | [`lee-eo-ryeong-questioning`](.claude/skills/lee-eo-ryeong-questioning/) · [ADR](ADR/skills/0001-lee-eo-ryeong-questioning.md) | 정문(正問) — 통설을 한 번 뒤집어 의미를 재정의 | 카피·키노트·리브랜딩·문제 재정의처럼 "다들 이렇게 말하는데"의 프레임 자체를 흔들고 싶을 때. |
+| 에리히 프롬 | [`erich-fromm-having-vs-being`](.claude/skills/erich-fromm-having-vs-being/) · [ADR](ADR/skills/0002-erich-fromm-having-vs-being.md) | Having vs Being 모드 진단 | 학습·관계·소비·자기소개가 "가지는 자세"로 흐를 때, 같은 활동을 동사·과정·관계 중심으로 재구성한다. |
+| 맥킨지 | [`mckinsey-structured-problem-solving`](.claude/skills/mckinsey-structured-problem-solving/) · [ADR](ADR/skills/0003-mckinsey-structured-problem-solving.md) | MECE 이슈 트리 + 가설 + Pyramid·SCQA | 모호하고 큰 비즈니스/제품/정책 문제를 한 시간 안에 답하고 임원·투자자에게 전달해야 할 때. |
+| 아리스토텔레스 | [`aristotle-phronesis`](.claude/skills/aristotle-phronesis/) · [ADR](ADR/skills/0004-aristotle-phronesis.md) | Phronesis — 보편 원칙의 평균 가정이 빗나가는 개별 상황 진단 | 베스트프랙티스·SOP대로 했는데 이 사람·이 시점·이 맥락에선 어색할 때, 행위 한 가지로 다시 짠다. |
+| 아리스토텔레스 | [`aristotle-causal-why`](.claude/skills/aristotle-causal-why/) · [ADR](ADR/skills/0005-aristotle-causal-why.md) | 4원인 + archē — "왜?"를 두 축으로 끝까지 추궁 | 5 Whys가 작용인 한 갈래로 수렴해 답답하거나, 머스크식 first principles가 질료인만 분해하고 멈췄을 때. |
+| 리처드 파인만 | [`feynman-explaining-to-understand`](.claude/skills/feynman-explaining-to-understand/) · [ADR](ADR/skills/0006-feynman-explaining-to-understand.md) | 이해 자기-감사 — 이름 벗기기 + Brazil-bay 적용 + freshman 환원 | 공부한 직후 "이거 진짜 안 거 맞나" 의심이 들 때, fluent한 설명이 cargo-cult(형식만 완벽·메커니즘 부재)인지 까발린다. |
+
+### 예정
+
+- [ ] 찰리 멍거 — Latticework of Mental Models
+- [ ] 스티브 잡스 — 단순함의 미학
+- [ ] 나발 라비칸트 — 부와 행복의 원리
+
 ## 어떻게 가져다 쓰는가 (왜 Claude Code 플러그인이 아닌가)
 
 mimesis는 **Claude Code 플러그인으로 배포하지 않는다.** 마음에 드는 거장 스킬만 골라서 너의 작업 레포 `.claude/skills/` 로 복사해 써라.
@@ -33,7 +53,7 @@ mimesis는 **Claude Code 플러그인으로 배포하지 않는다.** 마음에 
 
 ### 권장 사용 방식
 
-1. [인물 로스터](#인물-로스터-점진-추가)에서 자기에게 울림이 있는 거장 1~3명을 고른다.
+1. 위 [스킬 카탈로그](#스킬-카탈로그)에서 자기에게 울림이 있는 거장 1~3명을 고른다.
 2. 이 레포의 `.claude/skills/<figure-name>/` 디렉토리만 자기 작업 레포의 `.claude/skills/` 아래로 복사한다. 짝이 되는 `ADR/skills/NNNN-<figure-name>.md` 도 같이 가져가면 "왜 이렇게 잘랐는가"의 사고 흐름까지 들이는 셈.
 3. 라우터(`master-router/`)는 거장 2명 이상부터 같이 가져가면 트리거 충돌이 줄어든다. 한 명만 쓰는 시기엔 불필요.
 4. 나중에 한 명이 더 필요해지면 그때 추가한다.
@@ -131,26 +151,6 @@ mimesis/
 2. **출처를 남겨라** — 원문/페이지/영상 타임스탬프. 검증되지 않은 명언은 받아들이지 않는다.
 3. **스킬은 ADR과 짝으로** — 모든 스킬은 동일 번호의 ADR이 짝지어 존재한다.
 4. **회의하라** — 거장도 틀린다. 동의하지 않는 지점은 ADR의 *Consequences*에 명시한다.
-
-## 스킬 카탈로그
-
-거장 1명 = 스킬 1개를 원칙으로 하되, 같은 거장의 *다른 method*는 별도 스킬로 가른다 (예: `aristotle-phronesis` vs `aristotle-causal-why`).
-
-| 거장 | 스킬 | 한 줄 | 쓰면 뭐가 좋은가 |
-|---|---|---|---|
-| — (메타) | [`master-router`](.claude/skills/master-router/) · [ADR](ADR/meta/0001-master-router.md) | 거장 스킬 추천 라우터 | 막막한데 어느 인물·개념도 명시 못 할 때, 1~3명 후보를 "왜 이 상황에 맞는가"와 함께 추천받는다. |
-| 이어령 | [`lee-eo-ryeong-questioning`](.claude/skills/lee-eo-ryeong-questioning/) · [ADR](ADR/skills/0001-lee-eo-ryeong-questioning.md) | 정문(正問) — 통설을 한 번 뒤집어 의미를 재정의 | 카피·키노트·리브랜딩·문제 재정의처럼 "다들 이렇게 말하는데"의 프레임 자체를 흔들고 싶을 때. |
-| 에리히 프롬 | [`erich-fromm-having-vs-being`](.claude/skills/erich-fromm-having-vs-being/) · [ADR](ADR/skills/0002-erich-fromm-having-vs-being.md) | Having vs Being 모드 진단 | 학습·관계·소비·자기소개가 "가지는 자세"로 흐를 때, 같은 활동을 동사·과정·관계 중심으로 재구성한다. |
-| 맥킨지 | [`mckinsey-structured-problem-solving`](.claude/skills/mckinsey-structured-problem-solving/) · [ADR](ADR/skills/0003-mckinsey-structured-problem-solving.md) | MECE 이슈 트리 + 가설 + Pyramid·SCQA | 모호하고 큰 비즈니스/제품/정책 문제를 한 시간 안에 답하고 임원·투자자에게 전달해야 할 때. |
-| 아리스토텔레스 | [`aristotle-phronesis`](.claude/skills/aristotle-phronesis/) · [ADR](ADR/skills/0004-aristotle-phronesis.md) | Phronesis — 보편 원칙의 평균 가정이 빗나가는 개별 상황 진단 | 베스트프랙티스·SOP대로 했는데 이 사람·이 시점·이 맥락에선 어색할 때, 행위 한 가지로 다시 짠다. |
-| 아리스토텔레스 | [`aristotle-causal-why`](.claude/skills/aristotle-causal-why/) · [ADR](ADR/skills/0005-aristotle-causal-why.md) | 4원인 + archē — "왜?"를 두 축으로 끝까지 추궁 | 5 Whys가 작용인 한 갈래로 수렴해 답답하거나, 머스크식 first principles가 질료인만 분해하고 멈췄을 때. |
-| 리처드 파인만 | [`feynman-explaining-to-understand`](.claude/skills/feynman-explaining-to-understand/) · [ADR](ADR/skills/0006-feynman-explaining-to-understand.md) | 이해 자기-감사 — 이름 벗기기 + Brazil-bay 적용 + freshman 환원 | 공부한 직후 "이거 진짜 안 거 맞나" 의심이 들 때, fluent한 설명이 cargo-cult(형식만 완벽·메커니즘 부재)인지 까발린다. |
-
-### 예정
-
-- [ ] 찰리 멍거 — Latticework of Mental Models
-- [ ] 스티브 잡스 — 단순함의 미학
-- [ ] 나발 라비칸트 — 부와 행복의 원리
 
 ## 새 스킬 추가 절차
 
