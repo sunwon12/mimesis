@@ -13,6 +13,38 @@
 - **태도(How they live)** — 이어령의 지적 호기심, 스티브 잡스의 단순함, 세네카의 평정
 - **작업법(How they work)** — 헤밍웨이의 글쓰기 루틴, 다 빈치의 노트, 폰 노이만의 문제 분해
 
+## 어떻게 가져다 쓰는가 (왜 Claude Code 플러그인이 아닌가)
+
+mimesis는 **Claude Code 플러그인으로 배포하지 않는다.** 마음에 드는 거장 스킬만 골라서 너의 작업 레포 `.claude/skills/` 로 복사해 써라.
+
+이유 — Claude Code의 스킬 로딩 모델:
+
+| 레벨 | 무엇 | 언제 로드 |
+|---|---|---|
+| 1 | frontmatter (`name` + `description`) | **항상** 모든 세션 context에 상주 |
+| 2 | SKILL.md 본문 | 스킬 트리거 시에만 |
+| 3 | references/scripts/assets | 본문이 가리킬 때만 |
+
+플러그인은 설치 즉시 그 안의 모든 스킬 metadata가 사용자 모든 세션의 context에 들어간다. mimesis의 거장 스킬은 자연어 트리거를 잡으려고 description에 한국어 표현을 길게 박는 구조라(평균 700~1500자, 영어 일반 스킬의 ~3~5배), 10명 로스터 시점에는 그 거장을 안 부르는 세션에도 수천 자가 메타데이터로 상주한다.
+
+토큰 비용 자체는 catastrophic하지 않지만 — figure-anchored 컨셉상 더 중요한 비용은 **트리거 매핑의 추론 부담**이다. 후보 풀이 클수록 모델이 매 발화마다 "어느 스킬 영역인가"를 더 큰 공간에서 골라야 한다 (master-router를 도입한 이유와 같은 압력).
+
+게다가 mimesis의 본래 의도는 결과가 아니라 **거장 사고를 자기 것으로 만드는 것**이다. "전부 설치하고 가끔 쓰기"보다 "고른 거장만 들이고 자주 쓰기"가 figure-anchored 학습 방식과 맞물린다.
+
+### 권장 사용 방식
+
+1. [인물 로스터](#인물-로스터-점진-추가)에서 자기에게 울림이 있는 거장 1~3명을 고른다.
+2. 그 figure 디렉토리만 복사한다:
+   ```bash
+   # 예: 프롬 + 이어령만 가져가기 (+ 라우터를 같이 둘지는 선택)
+   cp -R mimesis/.claude/skills/erich-fromm-having-vs-being  your-repo/.claude/skills/
+   cp -R mimesis/.claude/skills/lee-eo-ryeong-questioning    your-repo/.claude/skills/
+   cp -R mimesis/.claude/skills/master-router                your-repo/.claude/skills/  # 선택
+   ```
+3. 나중에 한 명이 더 필요해지면 그때 추가한다. ADR도 같이 가져가면 "왜 이렇게 잘랐는가"의 사고 흐름까지 들이는 셈.
+
+> **참고**: skill description은 모든 세션에 상주한다는 점, Claude Code의 [공식 skill 로딩 문서](https://code.claude.com/docs/en/skills.md)에서 확인. 플러그인 vs 복사에 대한 직접적인 공식 가이드는 없지만, 이 레포는 figure-anchored 학습 철학에 맞춰 후자를 권장한다.
+
 ## 사용 흐름 (권장)
 
 거장 스킬이 늘수록 각 스킬의 description 트리거 표면이 겹쳐서, "지금 이 상황엔 누구를 부르지?"가 흐려진다.
