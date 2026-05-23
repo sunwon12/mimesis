@@ -17,17 +17,52 @@
 
 ```
 mimesis/
-├── .claude/skills/          # 실행 가능한 스킬 (Claude Code가 호출)
-│   └── <skill-name>/
-│       └── SKILL.md         # frontmatter(name, description) + 본문
+├── .claude/
+│   ├── agents/              # 3단계 파이프라인 에이전트
+│   │   ├── researcher.md       # 1차 자료 수집
+│   │   ├── summarizer.md       # 사고 해부도 작성
+│   │   └── skill-builder.md    # SKILL.md + ADR 생성
+│   └── skills/              # 실행 가능한 스킬 (Claude Code가 호출)
+│       └── <skill-name>/
+│           └── SKILL.md     # frontmatter(name, description) + 본문
+├── research/                # 에이전트 중간 산출물
+│   └── <figure-slug>/
+│       ├── <topic>-raw.md
+│       └── <topic>-summary.md
 ├── ADR/                     # 스킬 설계 의사결정 기록
-│   └── 0001-<slug>.md       # Context / Decision / Consequences
+│   └── NNNN-<slug>.md       # Context / Decomposition / Decision / Consequences
 └── README.md
 ```
 
+- **`.claude/agents/`** — 거장을 해체하는 3단계 파이프라인.
 - **`.claude/skills/`** — 결과물. Claude Code가 트리거 키워드로 자동 호출하는 실행 단위.
-- **`ADR/`** — 사고 과정. 왜 이 스킬을 만들었고, 왜 이런 형태로 잘랐는지를 남긴다.
-  결과물만 보면 "이미 정해진 답"처럼 보이지만, ADR을 남기면 **거장을 해체한 우리의 사고 흐름** 자체가 또 하나의 자산이 된다.
+- **`research/`** — raw 인용과 해부도. 스킬의 원재료이자 검증 추적용 사료.
+- **`ADR/`** — 사고 과정. 왜 이 스킬을 만들었고, 왜 이렇게 잘랐는지를 남긴다.
+  결과물만 보면 "이미 정해진 답"처럼 보이지만, ADR이 있어야 **거장을 해체한 우리의 사고 흐름** 자체가 또 하나의 자산이 된다.
+
+## 파이프라인 (거장 → 스킬)
+
+```
+[figure + topic]
+      │
+      ▼
+┌─────────────────┐    research/<f>/<t>-raw.md
+│  researcher     │  ─────────────────────────►  (1차 인용 + 출처)
+└─────────────────┘
+      │
+      ▼
+┌─────────────────┐    research/<f>/<t>-summary.md
+│  summarizer     │  ─────────────────────────►  (재현 가능한 절차)
+└─────────────────┘
+      │
+      ▼
+┌─────────────────┐    .claude/skills/<name>/SKILL.md
+│  skill-builder  │  ─────────────────────────►  + ADR/NNNN-<name>.md
+└─────────────────┘
+```
+
+각 에이전트의 응답은 **작성한 파일 경로만** 반환한다 (터미널에 본문을 다시 찍지 않는다).
+다음 에이전트는 그 경로를 입력으로 받아 이어간다.
 
 ## 작성 원칙
 
