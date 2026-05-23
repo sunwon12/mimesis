@@ -65,6 +65,39 @@ description: 80자 이상. 무엇을 하는지 + 언제 호출되어야 하는�
 
 ---
 
+## Collaborator entry-point SKILL.md 라우팅 규칙 (SSOT)
+
+거장 자산이 **collaborator shape**(예: Ogilvy — 멀티턴 페르소나 협업)인 경우, SKILL.md는 본체가 아니라 *진입점*이다. 본체는 `.claude/agents/<figure>.md` agent다 (Claude Code는 `.claude/agents/`를 재귀 탐색하지 않으므로 평면 배치 필수 — 분기는 네이밍 컨벤션으로). 이 경우 SKILL.md에 **반드시** 다음 라우팅 규칙이 박혀 있어야 한다 — 구체적 함수 시그니처까지.
+
+shape 분기 자체는 [`ADR/meta/0002-collaborator-agent-shape.md`](../../ADR/meta/0002-collaborator-agent-shape.md) SSOT.
+
+### 박아야 하는 세 분기
+
+1. **첫 호출** (같은 세션에서 그 figure를 처음 부른 경우):
+   - `Agent({ subagent_type: "<figure>", name: "<figure>", description: "...", prompt: <사용자 입력 그대로> })`
+   - **`name` 파라미터 필수** — 후속 turn에서 SendMessage가 같은 인스턴스를 식별하기 위한 유일한 핸들.
+
+2. **후속 turn** (같은 세션에서 그 figure가 이미 spawn된 경우):
+   - `SendMessage({ to: "<figure>", message: <사용자 입력 그대로> })`
+   - 새 `Agent` 호출 **금지** — 새 인스턴스가 생겨 이전 대화·voice가 증발.
+
+3. **세션이 바뀐 경우**: in-memory 대화는 사라졌으므로 1번부터 다시. 세션을 넘는 영속성은 agent 본체가 `research/<figure>/` 등 파일을 읽어 보강하는 책임 (SKILL의 책임 아님).
+
+### Why 이 규칙이 SSOT여야 하는가
+
+- 새 `Agent` 호출은 **항상 fresh context**. 두 번째도 `Agent`로 부르면 첫 turn의 합의·tuning이 모두 사라진다 — collaborator shape의 전제(상태 유지)가 무너진다.
+- `SendMessage`는 spawn된 agent의 `name`(또는 ID)으로만 닿는다. `name` 없이 spawn하면 후속 호출이 불가능해진다.
+- main Claude가 이 라우팅을 의식하지 않으면 자기-답변하거나 매번 새 spawn하는 사고가 발생 — 진입 신뢰성이 collaborator shape의 약점이라는 점은 ADR 0002에 명시되어 있다.
+
+### 본문에 더 박아야 할 것
+
+- main Claude는 agent의 voice를 흉내내지 않는다. 통로 역할만.
+- 종료 트리거(다른 figure 명시 호출 / "끝" / 작업 완결)를 명시해 main 통제로 복귀 시점을 정의.
+
+diagnostic shape 스킬은 본 섹션을 따르지 않는다 — diagnostic은 SKILL.md 본문이 곧 본체이며, 별도 agent를 spawn하지 않는다.
+
+---
+
 ## 7 Principles (skill 작성의 핵심 원칙)
 
 Anthropic 공식 `skill-creator`에서 추출. SKILL.md를 쓰기 전 매번 본다.

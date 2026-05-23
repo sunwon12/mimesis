@@ -41,5 +41,6 @@ Step 3 (final) of the 3-step pipeline:
 - [ ] ADR Decomposition에 summary의 Q번호 근거가 살아있는가?
 - [ ] ADR Decision에 "잘라낸 것"과 "resource 분리 판단"이 명시되어 있는가?
 - [ ] 거장 스킬이라면 description이 인물명·고유 개념 명시 호출에 좁혀져 있고, ambiguous한 상황은 master-router가 받도록 한 줄이 박혀 있는가?
+- [ ] **collaborator shape** 거장이라면 SKILL.md에 라우팅 규칙(첫 호출 `Agent({name: "<figure>", ...})` / 후속 turn `SendMessage({to: "<figure>", ...})` / 세션 바뀐 경우 첫 호출 재시작) 세 분기가 **구체적 함수 시그니처**로 박혀 있는가? SSOT: [`.claude/skills/README.md` → Collaborator entry-point 라우팅 규칙](../skills/README.md#collaborator-entry-point-skillmd-라우팅-규칙-ssot). diagnostic shape이면 이 체크는 N/A.
 - [ ] 네이밍이 [`.claude/skills/README.md`의 네이밍 규칙](../skills/README.md#네이밍-규칙-hard-rules) 을 따르는가? (figure-anchored, ASCII lowercase, hyphens, gerund 우선)
 - [ ] 두 경로만 출력했는가?
