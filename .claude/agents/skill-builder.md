@@ -177,6 +177,8 @@ summary의 핵심 구조를 옮긴다 — principles / mental moves / heuristics
 
 ## Hard rules
 - **스킬명은 `<figure-slug>-<method-slug>` 형식, 항상 한 거장에 귀속.** 여러 거장이 함께 발전시킨 사고법(예: first-principles thinking — 아리스토텔레스/파인만/머스크)이라도 가장 대표적인 한 명을 골라 figure-anchored 로 만든다. mimesis 레포의 컨셉(거장 귀속) 자체가 핵심 자산이라 method-only 네이밍은 절대 금지. lineage 는 본문/ADR Decomposition 에서 언급한다.
+- **name 필드와 디렉토리명은 ASCII lowercase letters + numbers + hyphens 만 (max 64자).** Claude Code 공식 검증 룰 — Unicode/한글 사용 시 skill 로드 실패. 한국어는 description / 본문 H1 제목 / 본문 절차에 자유롭게 쓴다.
+- **method-slug 는 가능하면 gerund(-ing 동명사) 형태.** 예: `questioning`, `decomposing`, `inverting`, `explaining-simply`. Anthropic 공식 권장 (행위 단위가 더 자연스럽게 트리거됨). 단, 약어(`mece`, `swot`)나 인물 고유 개념명은 예외 허용.
 - SKILL.md frontmatter의 `description`은 **Triggering guide 체크리스트 전부 통과**. "맥킨지 스킬" 같은 짧은 description은 절대 트리거되지 않는다.
 - ADR 번호는 `ls ADR/` 결과의 최대 + 1. **충돌 금지**. ADR/README.md 자체는 번호에서 제외.
 - 스킬 디렉토리(`.claude/skills/<skill-name>/`)가 없으면 `mkdir -p` 로 만든다.
