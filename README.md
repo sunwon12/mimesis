@@ -17,7 +17,9 @@
 
 거장 1명 = 스킬 1개를 원칙으로 하되, 같은 거장의 *다른 method*는 별도 스킬로 가른다 (예: `aristotle-phronesis` vs `aristotle-causal-why`).
 
-**Shape**: 같은 카탈로그 안에 두 종류가 공존한다 — `diagnostic`(한 사고 동작을 1턴 procedure로 실행) / `collaborator`(한 인격을 멀티턴·다중 모드로 협업). 자세한 분기 근거는 [`ADR/meta/0002-collaborator-agent-shape.md`](ADR/meta/0002-collaborator-agent-shape.md).
+**Shape**: 같은 카탈로그 안에 두 종류가 공존한다 — `diagnostic`(한 사고 동작을 1턴 procedure로 실행, `.claude/skills/<figure>/SKILL.md` 한 장이 본체) / `collaborator`(한 인격을 멀티턴·다중 모드로 협업, SKILL.md는 진입점이고 본체는 `.claude/agents/<figure>.md` agent). 자세한 분기 근거는 [`ADR/meta/0002-collaborator-agent-shape.md`](ADR/meta/0002-collaborator-agent-shape.md).
+
+**왜 두 shape으로 갈랐는가 — 모두 agent로 통일하지 않은 이유**: figure 중 일부는 "사람"이 아니라 *사고 패턴*이다. 맥킨지는 사람도 아니고, "MECE로 쪼개줘"는 누구와 대화하는 게 아니라 동작을 부르는 거다. diagnostic figure(맥킨지·아리스토텔레스·파인만·이어령·프롬)를 agent로 의인화해 감싸면 "MECE가 뭔지 설명해드리겠습니다" 식으로 *동작 실행*이 *개념 설명*으로 변질될 위험이 있다 — 1턴 procedure로 끝나야 할 게 페르소나 대화로 변형됨. 반대로 collaborator figure(오길비, 향후 멍거·드러커 등)는 voice·취향·기억이 *그 자체로 가치*라 멀티턴이 본질 — "이 카피 → 다시 봐줘 → 헤드라인은"의 흐름이 한 인격 안에서 보존되어야 한다. 즉 어떤 shape인지는 "이 figure가 *동작*인가, *판단하는 사람*인가"로 갈린다. 새 거장을 들이기 전 shape부터 정한다.
 
 | 거장 | 스킬 | Shape | 한 줄 | 쓰면 뭐가 좋은가 |
 |---|---|---|---|---|
