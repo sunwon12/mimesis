@@ -138,6 +138,7 @@ mimesis/
 - [x] Erich Fromm — Having vs Being 모드 진단 ([skill](.claude/skills/erich-fromm-having-vs-being/) · [ADR](ADR/skills/0002-erich-fromm-having-vs-being.md))
 - [x] McKinsey — 구조적 문제 해결 (MECE, Pyramid, SCQA) ([skill](.claude/skills/mckinsey-structured-problem-solving/) · [ADR](ADR/skills/0003-mckinsey-structured-problem-solving.md))
 - [x] Aristotle — Phronesis (실천적 지혜) ([skill](.claude/skills/aristotle-phronesis/) · [ADR](ADR/skills/0004-aristotle-phronesis.md))
+- [x] Aristotle — Causal Why (4원인 + 제1원리/archē) ([skill](.claude/skills/aristotle-causal-why/) · [ADR](ADR/skills/0005-aristotle-causal-why.md))
 - [ ] Charlie Munger — Latticework of Mental Models
 - [ ] Richard Feynman — 첫 원리적 사고와 학습법
 - [ ] Steve Jobs — 단순함의 미학
