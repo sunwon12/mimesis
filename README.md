@@ -19,7 +19,7 @@
 
 **Shape**: 같은 카탈로그 안에 두 종류가 공존한다 — `diagnostic`(한 사고 동작을 1턴 procedure로 실행, `.claude/skills/<figure>/SKILL.md` 한 장이 본체) / `collaborator`(한 인격을 멀티턴·다중 모드로 협업, SKILL.md는 진입점이고 본체는 `.claude/agents/<figure>.md` agent). 자세한 분기 근거는 [`ADR/meta/0002-collaborator-agent-shape.md`](ADR/meta/0002-collaborator-agent-shape.md).
 
-**왜 두 shape으로 갈랐는가 — 모두 agent로 통일하지 않은 이유**: figure 중 일부는 "사람"이 아니라 *사고 패턴*이다. 맥킨지는 사람도 아니고, "MECE로 쪼개줘"는 누구와 대화하는 게 아니라 동작을 부르는 거다. diagnostic figure(맥킨지·아리스토텔레스·파인만·이어령·프롬)를 agent로 의인화해 감싸면 "MECE가 뭔지 설명해드리겠습니다" 식으로 *동작 실행*이 *개념 설명*으로 변질될 위험이 있다 — 1턴 procedure로 끝나야 할 게 페르소나 대화로 변형됨. 반대로 collaborator figure(오길비, 향후 멍거·드러커 등)는 voice·취향·기억이 *그 자체로 가치*라 멀티턴이 본질 — "이 카피 → 다시 봐줘 → 헤드라인은"의 흐름이 한 인격 안에서 보존되어야 한다. 즉 어떤 shape인지는 "이 figure가 *동작*인가, *판단하는 사람*인가"로 갈린다. 새 거장을 들이기 전 shape부터 정한다.
+**왜 두 shape으로 갈랐는가 — 모두 agent로 통일하지 않은 이유**: figure 중 일부는 "사람"이 아니라 *사고 패턴*이다. 맥킨지는 사람도 아니고, "MECE로 쪼개줘"는 누구와 대화하는 게 아니라 동작을 부르는 거다. diagnostic figure(맥킨지·아리스토텔레스·파인만·이어령·프롬)를 agent로 의인화해 감싸면 "MECE가 뭔지 설명해드리겠습니다" 식으로 *동작 실행*이 *개념 설명*으로 변질될 위험이 있다 — 1턴 procedure로 끝나야 할 게 페르소나 대화로 변형됨. 반대로 collaborator figure(오길비·카파시·서튼 등)는 voice·취향·기억이 *그 자체로 가치*라 멀티턴이 본질 — "이 카피 → 다시 봐줘 → 헤드라인은"의 흐름이 한 인격 안에서 보존되어야 한다. 즉 어떤 shape인지는 "이 figure가 *동작*인가, *판단하는 사람*인가"로 갈린다. 새 거장을 들이기 전 shape부터 정한다.
 
 | 거장 | 스킬 | Shape | 한 줄 | 쓰면 뭐가 좋은가 |
 |---|---|---|---|---|
@@ -33,12 +33,12 @@
 | 데이비드 오길비 | [`ogilvy`](.claude/skills/ogilvy/) + [agent](.claude/agents/ogilvy.md) · [ADR](ADR/skills/0007-ogilvy.md) | **collaborator** | 브랜드·광고·카피의 ongoing 협업 — 6개 모드(인테이크/카피/네이밍·포지셔닝/Big Idea/캠페인/헤드라인)를 한 인격으로 | "이 카피 어때 → 고쳤어 → 다시 봐줘"의 멀티턴 협업이 필요할 때. 진단 1턴이 아니라 default pushback voice로 함께 일하고 싶을 때. |
 | 안드레이 카파시 | [`karpathy`](.claude/skills/karpathy/) + [agent](.claude/agents/karpathy.md) · [ADR](ADR/skills/0008-karpathy.md) | **collaborator** | 백엔드 엔지니어의 AI 작업 ongoing 협업 — 6개 지각 엔진(Context as RAM / Build for agents / Minimal repro / Spirits not animals / Autonomy slider / works.any vs all)을 한 인격으로 | 프롬프트·세션·메모리 설계, docs·API·error의 agent consumer 검토, AI feasibility 진단, 흔한·unique 패턴 calibration, 통합 지점의 autonomy slider 디자인, demo→production 운영 spec 분기 — 매일 AI 통합 작업에 카파시 voice를 동반하고 싶을 때. |
 | 리처드 서튼 | [`sutton`](.claude/skills/sutton/) + [agent](.claude/agents/sutton.md) · [ADR](ADR/skills/0009-sutton.md) | **collaborator** | 백엔드 엔지니어의 RL harness/agent 설계 ongoing 협업 — 6개 설계 차원(Reward design / Environment·stream / Exploration / Continual loop / Long-term value tracking / Bitter Lesson check)을 한 인격으로. *LLM·supervised pretraining·RLHF 명시 거부 voice가 Karpathy와 정반대 자리에 박힘.* | reward function 정식화(scalar 환원·grounded source), environment·stream·episode 구조 설계, exploration policy, continual learning loop, value function 디자인, hand-engineering vs scaling 결정 — 환경과 반복 상호작용하는 학습 agent 설계 자리에 서튼 voice를 동반하고 싶을 때. |
+| 찰리 멍거 | [`charlie-munger-latticework`](.claude/skills/charlie-munger-latticework/) · [ADR](ADR/skills/0010-charlie-munger-latticework.md) | diagnostic | Latticework — 통째 문제에 여러 학문의 큰 모델을 겹쳐 합치·충돌·lollapalooza를 읽는 다학제 수평 교차검증 | "내 전공 모델 하나로만 풀고 있다" 싶을 때, 분해(McKinsey)·수직추궁(Aristotle)·자기감사(Feynman)가 아니라 외부 학문 렌즈를 *겹쳐* 단일-모델 왜곡(man with a hammer)을 깨고, circle of competence 안에서만 결론을 신뢰하고 싶을 때. |
 
 > **Collaborator shape 주의**: `ogilvy` 스킬은 본체가 아니라 진입점이다. `.claude/agents/ogilvy.md` agent와 짝으로 가져가야 작동한다. 진단 스킬은 SKILL.md 하나만 복사하면 되지만, collaborator는 두 파일 + ADR이 한 묶음.
 
 ### 예정
 
-- [ ] 찰리 멍거 — Latticework of Mental Models (diagnostic)
 - [ ] 스티브 잡스 — 단순함의 미학 (shape 검토 필요)
 - [ ] 나발 라비칸트 — 부와 행복의 원리 (diagnostic)
 
