@@ -21,7 +21,7 @@
 
 **왜 두 shape으로 갈랐는가 — 모두 agent로 통일하지 않은 이유**: figure 중 일부는 "사람"이 아니라 *사고 패턴*이다. 맥킨지는 사람도 아니고, "MECE로 쪼개줘"는 누구와 대화하는 게 아니라 동작을 부르는 거다. diagnostic figure(맥킨지·아리스토텔레스·파인만·이어령·프롬)를 agent로 의인화해 감싸면 "MECE가 뭔지 설명해드리겠습니다" 식으로 *동작 실행*이 *개념 설명*으로 변질될 위험이 있다 — 1턴 procedure로 끝나야 할 게 페르소나 대화로 변형됨. 반대로 collaborator figure(오길비·카파시·서튼 등)는 voice·취향·기억이 *그 자체로 가치*라 멀티턴이 본질 — "이 카피 → 다시 봐줘 → 헤드라인은"의 흐름이 한 인격 안에서 보존되어야 한다. 즉 어떤 shape인지는 "이 figure가 *동작*인가, *판단하는 사람*인가"로 갈린다. 새 거장을 들이기 전 shape부터 정한다.
 
-**축**: 각 행이 점유하는 사고 동작(diagnostic) 또는 협업 도메인(collaborator) — 로스터를 "무슨 조작을 하는가"로 다시 본 지도다. 수직 분해(맥킨지)·인과 깊이(아리스토텔레스 인과)·수평 겹침(멍거)이 서로 다른 기하를 차지하고, 통설 재정의(이어령)·맥락 적합(phronesis)·자세 진단(프롬)·자기감사(파인만)·명료화(오웰)가 나머지 면을 덮는다.
+**축**: 각 행이 점유하는 사고 동작(diagnostic) 또는 협업 도메인(collaborator) — 로스터를 "무슨 조작을 하는가"로 다시 본 지도다. 수직 분해(맥킨지)·인과 깊이(아리스토텔레스 인과)·수평 겹침(멍거)·시간 피드백(메도즈)이 서로 다른 기하를 차지하고, 통설 재정의(이어령)·맥락 적합(phronesis)·자세 진단(프롬)·자기감사(파인만)·명료화(오웰)가 나머지 면을 덮는다.
 
 | 축 | 거장 | 스킬 | Shape | 한 줄 | 쓰면 뭐가 좋은가 |
 |---|---|---|---|---|---|
@@ -37,11 +37,13 @@
 | RL 설계 (도메인) | 리처드 서튼 | [`sutton`](.claude/skills/sutton/) + [agent](.claude/agents/sutton.md) · [ADR](ADR/skills/0009-sutton.md) | **collaborator** | 백엔드 엔지니어의 RL harness/agent 설계 ongoing 협업 — 6개 설계 차원(Reward design / Environment·stream / Exploration / Continual loop / Long-term value tracking / Bitter Lesson check)을 한 인격으로. *LLM·supervised pretraining·RLHF 명시 거부 voice가 Karpathy와 정반대 자리에 박힘.* | reward function 정식화(scalar 환원·grounded source), environment·stream·episode 구조 설계, exploration policy, continual learning loop, value function 디자인, hand-engineering vs scaling 결정 — 환경과 반복 상호작용하는 학습 agent 설계 자리에 서튼 voice를 동반하고 싶을 때. |
 | 다학제 교차 (수평 겹침) | 찰리 멍거 | [`charlie-munger-latticework`](.claude/skills/charlie-munger-latticework/) · [ADR](ADR/skills/0010-charlie-munger-latticework.md) | diagnostic | Latticework — 통째 문제에 여러 학문의 큰 모델을 겹쳐 합치·충돌·lollapalooza를 읽는 다학제 수평 교차검증 | "내 전공 모델 하나로만 풀고 있다" 싶을 때, 분해(McKinsey)·수직추궁(Aristotle)·자기감사(Feynman)가 아니라 외부 학문 렌즈를 *겹쳐* 단일-모델 왜곡(man with a hammer)을 깨고, circle of competence 안에서만 결론을 신뢰하고 싶을 때. |
 | 표현 명료화 (안개 제거) | 조지 오웰 | [`orwell-writing-clearly`](.claude/skills/orwell-writing-clearly/) · [ADR](ADR/skills/0011-orwell-writing-clearly.md) | diagnostic | "좋은 글은 유리창" — 흐린 문장을 *증상*으로 읽어 안개를 찾고·습관에 이름 붙이고·뜻을 평이한 말로 도로 밀어 넣는 명료성 패스 (범용) | 이메일·보고서·공지·에세이 어떤 평이한 산문이든 장황·흐릿·전문용어 떡칠을 1턴에 진단·재작성하고 싶을 때. 설득(오길비)·새 의미 빚기(이어령)·개념 이해 감사(파인만)가 아니라 *이미 정해진 뜻을 또렷이 착지*시키는 일. |
+| 시스템 동역학 (피드백·레버리지) | 도넬라 메도즈 | [`donella-meadows-systems-thinking`](.claude/skills/donella-meadows-systems-thinking/) · [ADR](ADR/skills/0012-donella-meadows-systems-thinking.md) | diagnostic | stock·flow·feedback loop·delay로 시간에 걸친 행동 패턴을 진단 + 12 leverage points로 개입 지점 랭킹 | "고치려 할수록 재발·진동·폭주"하는 구조적 문제에서 "누구 탓"이 아니라 "어떤 구조가 이 행동을 낳는가"로 재귀속하고, 직관이 거꾸로 미는 개입 지점을 약함→강함으로 줄 세우고 싶을 때. 맥킨지 정적 분해·멍거 수평 겹침·아리스토텔레스 단일 인과와 달리 *동적 피드백·시간 지연*을 본다. |
 
 > **Collaborator shape 주의**: `ogilvy` 스킬은 본체가 아니라 진입점이다. `.claude/agents/ogilvy.md` agent와 짝으로 가져가야 작동한다. 진단 스킬은 SKILL.md 하나만 복사하면 되지만, collaborator는 두 파일 + ADR이 한 묶음.
 
 ### 예정
 
+- [ ] 에드워드 드 보노 — lateral thinking·발산 (diagnostic, 다음 차례) — 컬렉션의 *발산·생성* 축. 수렴 일색인 로스터에 "넓히는" 동작을 더한다.
 - [ ] 스티브 잡스 — 단순함의 미학 (shape 검토 필요)
 - [ ] 나발 라비칸트 — 부와 행복의 원리 (diagnostic)
 
